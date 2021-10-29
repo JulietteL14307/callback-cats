@@ -1,6 +1,6 @@
 var express = require("express");
 var router = express.Router();
-var models = require("../models");
+var models = require("./server-express-mysql/models");
 const mysql = require('mysql');
 
 var connection = mysql.createConnection({
@@ -18,15 +18,23 @@ connection.connect(function(err) {
   console.log('You have been connected to the database!');
 })
 
-const query = `SELECT * from products LIMIT 10`;
+router.get('/products/:id', function(req, res, next) {
+  let productId = parseInt(req.params.id);
+  console.log(productId);
 
-connection.query(query, (err, results) => {
-  if (err) throw err;
-  console.log(results);
-});
+  let idQuery = `SELECT * FROM products WHERE product_id=${productId}`;
+  console.log(idQuery);
 
-router.get("/", function(req, res, next) {
-  models.Task.findAll().then(tasks => res.json(tasks));
+  connection.query(idQuery, (err, result) => {
+    console.log(result);
+    if (result.length > 0) {
+      res.render('index', {
+        products: result[0]
+      });
+    } else {
+      res.send('not a valid product id');
+    }
+  });
 });
 
 router.post("/", function(req, res, next) {
