@@ -1,34 +1,26 @@
-/* jshint indent: 2 */
-
-module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('products', {
-    product_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true,
-      autoIncrement: true
+'use strict';
+module.exports = (sequelize, DataTypes) => {
+  var products = sequelize.define(
+    'products',
+    {
+      product_id: {
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+        type: DataTypes.INTEGER
+      },
+      title: DataTypes.STRING,
+      description: DataTypes.STRING,
+      department_id: {
+        allowNull: false,
+        type: DataTypes.INTEGER
+      },
+      inStock: {
+        allowNull: false,  
+        type: DataTypes.BOOLEAN
     },
-    title: {
-      type: DataTypes.STRING(45),
-      allowNull: false
-    },
-    description: {
-      type: DataTypes.STRING(45),
-      allowNull: false
-    },
-    quantity: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
-    department_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
-    inStock: {
-      type: DataTypes.INTEGER,
-      allowNull: false
     }
-  }, {
-    tableName: 'products'
-  });
+  );
+
+  return products;
 };

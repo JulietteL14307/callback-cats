@@ -7,13 +7,14 @@ var Sequelize = require('sequelize');
  *
  * createTable "departments", deps: []
  * createTable "products", deps: []
+ * createTable "users", deps: []
  *
  **/
 
 var info = {
     "revision": 1,
-    "name": "initial",
-    "created": "2021-10-25T20:06:00.932Z",
+    "name": "migration",
+    "created": "2021-10-30T06:24:46.960Z",
     "comment": ""
 };
 
@@ -31,6 +32,16 @@ var migrationCommands = [{
         fn: "createTable",
         params: [
             "products",
+            {
+
+            },
+            {}
+        ]
+    },
+    {
+        fn: "createTable",
+        params: [
+            "users",
             {
 
             },

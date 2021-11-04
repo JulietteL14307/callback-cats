@@ -7,8 +7,15 @@ var cors = require("cors");
 
 var indexRouter = require("./routes/index");
 var departmentsRouter = require("./routes/departments");
+var productsRouter = require("./routes/products");
 
 var app = express();
+
+app.use(function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  next();
+});
 
 app.use(logger("dev"));
 app.use(express.json());
@@ -19,6 +26,7 @@ app.use(cors());
 
 app.use("/", indexRouter);
 app.use("/departments", departmentsRouter);
+app.use("/products", productsRouter);
 
 models.sequelize.sync().then(function() {
   console.log("DB Sync'd up");
