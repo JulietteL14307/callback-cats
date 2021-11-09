@@ -1,16 +1,22 @@
-module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('departments', {
-    department_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true,
-      autoIncrement: true
+'use strict';
+
+module.exports = (sequelize, DataTypes) => {
+  var departments = sequelize.define(
+    'departments',
+    {
+      department_id: {
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+        type: DataTypes.INTEGER,
+        model: "departments",
+        key: "department_id"
+      },
+      title: DataTypes.STRING
     },
-    title: {
-      type: DataTypes.STRING(45),
-      allowNull: false
-    }
-  }, {
-    tableName: 'departments'
-  });
+    {}
+  );
+
+
+  return departments;
 };
