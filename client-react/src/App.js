@@ -1,15 +1,18 @@
-import React from "react";
-import "./App.css";
-import Products from "./components/products";
-import Departments from "./components/departments";
+import React from 'react';
+import {BrowserRouter as Router, Link} from "react-router-dom";
+import { Routes } from './shared/Routes';
 
-function App() {
-  return (
-    <div className="App">
-      <Products uri="http://localhost:3001/products"/>
-      <Departments uri="http://localhost:3001/departments"/>
-    </div>
-  );
+export const App = () => {
+    return (
+        <>
+        <div className="routerDiv">
+            <Router basename="/">
+                <Link style={{ textDecoration: 'none' }} to="/">Home</Link>
+                <Link style ={{ textDecoration: 'none' }}to="/departments">Departments</Link>
+                <Link style={{ textDecoration: 'none' }} to="/products">Products</Link>
+                <Routes />
+            </Router>
+        </div>
+        </>
+    )
 }
-
-export default App;
