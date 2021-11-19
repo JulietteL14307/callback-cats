@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+
+body {
+    background-color: #85C1E9;
+    font-family: 'Righteous', cursive;
+}
+
+.heading {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.logo {
+    height: 80px;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    color: #327C6E;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+button {
+    width: 100px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    background-color: #B2BABB;
+    color: #327C6E;
+    border-radius: 12px;
+    font-family: 'Righteous', cursive;
+}
+
+button:hover {
+    background-color: #327C6E;
+    color: yellow;
+  }
+
+.login {
+    padding-bottom: 5px;
+}
+
+.newU {
+    padding-top: 5px;
+    padding-bottom: 10px;
+}
+
+label {
+    color: #327C6E;
+}
+
+.form {
+    padding-bottom: 10px;
+}
+
+.navContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+h2 {
+    text-align: center;
+    padding: 20px;
+}
+
+.deptContainer {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.createProduct {
+    text-align: center;
+}
+
+.productPage {
+    display: flex;
+    text-align: center;
+}
+
+.productContainer {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    align-items: stretch;
+}
+
+.products {
+    background-color: #327C6E;
+    color: #85C1E9;
+    border-radius: 10px;
+    margin-top: 60px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.adminCont {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+@media only screen and (max-width: 480px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    body {
+        text-align: center;
+    }
+}
