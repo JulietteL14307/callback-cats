@@ -2,21 +2,22 @@ const jwt = require('jsonwebtoken');
 const models = require('../models/index');
 const bcrypt = require("bcryptjs");
 
-var authService = {
-  signUser: function(user) {
-    const token = jwt.sign(
-      {
-        Username: user.Username,
-        UserId: user.UserId
-      },
-      'secretkey',
-      {
-        expiresIn: '1h'
-      }
-    );
-    return token;
+//import users from '../server-express-mysql/models/users';
+
+let authService = {
+  signUser: function (user) {
+      const token = jwt.sign({
+              Username: user.Username,
+              UserId: user.UserId,
+              Admin: user.Admin
+          },
+          "secret", {
+              expiresIn: "1h"
+          }
+      );
+      return token;
   },
-  // ...
+  
 verifyUser: function (token) {  //<--- receive JWT token as parameter
     try {
       let decoded = jwt.verify(token, 'secretkey'); //<--- Decrypt token using same key used to encrypt

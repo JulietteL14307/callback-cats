@@ -5,13 +5,14 @@ import { Routes } from './shared/Routes';
 export const App = () => {
     return (
         <>
+        <div className="routerParent">
         <div className="routerDiv">
             <Router basename="/">
-                <Link style={{ textDecoration: 'none' }} to="/">Home</Link>
-                <Link style ={{ textDecoration: 'none' }}to="/departments">Departments</Link>
-                <Link style={{ textDecoration: 'none' }} to="/products">Products</Link>
+                <div><Link style={{ textDecoration: 'none' }} to="/">Home</Link></div>
+                <div><Link style={{ textDecoration: 'none' }} to="/products">Products</Link></div>
                 <Routes />
             </Router>
+        </div>
         </div>
         </>
     )

@@ -25,7 +25,7 @@ passport.use(
 
 // Stores the user id in the user session
 passport.serializeUser((user, callback) => {
-  callback(null, user.AdminId);
+  callback(null, user.UserId);
 });
 
 // Queries the database for the user details and adds to the request object in the routes

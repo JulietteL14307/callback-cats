@@ -1,30 +1,34 @@
 import React, { useEffect, useState } from 'react';
 import axios from "axios";
+import '../App.css';
 
-let url = "http://localhost:3001/products";
+export const Products = () => {
+    
+    const [postProducts, setProducts]=useState([]);
 
+    useEffect(() => {
+        axios.get("http://localhost:3001/products").then((data) => {
+            setProducts(data.data)
+        });
+    },[])
 
-export const products = () => {
-    // const [state, setState] = useState();
-
-    // useEffect(() => {
-    //     getData();
-    // }, [state]);
-
-    // const getData = () => {
-    //     axios.get(url).then(res => setState(res.data))
-    // }
-
-    // let data = !state ? [{}] : state;
     return (
-        <>
-            <h1>Products Works!</h1>
-            {/* <button onClick={() => console.table(state)}>State</button>
-            <ul>
-                {data.map((d, idx) => (
-                    <li key={idx}>{d.title}</li>
-                ))}
-            </ul> */}
-        </>
+        <div className="productPage">
+            <div className="productParent">
+            <h1>Products</h1>
+            <div className="productContainer">
+                {postProducts.map(( val, key) => {
+                    return (
+                        <div className="products">
+                            <h2>{val.title}</h2>
+                            <p>Department: {val.department_id}</p>
+                            <p> Description: {val.description}</p>
+                            <p>Quantity: {val.quantity}</p>
+                        </div>
+                    )
+                })}
+            </div>
+            </div>
+        </div>
     )
 }

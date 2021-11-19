@@ -1,8 +1,12 @@
 const express = require('express');
+const app = express();
 const router = express.Router();
+const cors = require("cors");
+const { response } = require('express');
 
-router.get('/index', function(req, res, next){
-    res.send("INDEX");
-});
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(cors());
+
 
 module.exports = router;
